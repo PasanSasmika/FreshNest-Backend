@@ -97,6 +97,18 @@ export function loginUser(req,res){
     )
 }
 
+//Get All Users
+
+export async function getAllUsers(req, res) {
+    try {
+        const users = await User.find({}, '-password');
+        res.json(users);
+    } catch (error) {
+        console.error("Error fetching users:", error);
+        res.status(500).json({ message: "Error fetching users" });
+    }
+}
+
 
 // Fuctions for identifying Users
 
