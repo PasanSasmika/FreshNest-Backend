@@ -5,6 +5,7 @@ import jwt from "jsonwebtoken";
 import dotenv from 'dotenv';
 import cors from 'cors';
 import userRouter from './routes/userRoutes.js';
+import serviceRouter from './routes/serviceRoutes.js';
 
 
 dotenv.config()
@@ -44,6 +45,7 @@ app.use(
 )
 
 app.use("/api/users",userRouter)
+app.use("/api/service",serviceRouter)
 
 
 
