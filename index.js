@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import userRouter from './routes/userRoutes.js';
 import serviceRouter from './routes/serviceRoutes.js';
+import bookingRouter from './routes/bookingRoutes.js';
 
 
 dotenv.config()
@@ -46,6 +47,7 @@ app.use(
 
 app.use("/api/users",userRouter)
 app.use("/api/service",serviceRouter)
+app.use("/api/booking",bookingRouter)
 
 
 
