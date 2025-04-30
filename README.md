@@ -2,7 +2,7 @@
 
 This is the **backend server** for **FreshNest**, a modern Cleaning Service Management System. Built using **Node.js**, **Express**, and **MongoDB**, it provides RESTful APIs for handling customer bookings and cleaning service types.
 
-🔗 **Live Demo (Frontend):** [https://fresh-nest-frontend.vercel.app](https://fresh-nest-frontend.vercel.app)  
+🔗 **Live Demo (Frontend):** [https://fresh-nest-frontend.vercel.app](https://fresh-nest-frontend.vercel.app/)  
 🔗 **Frontend Repository:** [https://github.com/PasanSasmika/FreshNest-Frontend](https://github.com/PasanSasmika/FreshNest-Frontend)
 
 ⚙️ *Note: Backend is hosted on Render. It may take a few seconds to respond due to cold starts.*
