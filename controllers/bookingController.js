@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import Booking from "../models/bookingModel.js";
 import Service from "../models/servicesModel.js";
 import User from "../models/userModel.js";
@@ -69,6 +70,32 @@ export  async function getBookingById(req, res)  {
     res.status(500).json({ message: error.message });
   }
 };
+
+//Get booking by user id
+export async function getBookingsByUserId(req, res) {
+  try {
+    const userId = req.params.userId;
+
+    if (!mongoose.Types.ObjectId.isValid(userId)) {
+      return res.status(400).json({ message: 'Invalid user ID format' });
+    }
+
+    const bookings = await Booking.find({ user_id: userId })
+      .populate('service_id', 'name price duration')
+      .populate('user_id', 'firstName lastName email');
+
+    if (!bookings.length) {
+      return res.status(200).json({ message: 'No bookings found for this user', bookings: [] });
+    }
+
+    res.status(200).json(bookings);
+  } catch (error) {
+    if (error.name === 'CastError') {
+      return res.status(400).json({ message: 'Invalid user ID' });
+    }
+    res.status(500).json({ message: error.message });
+  }
+}
 
 // Update booking
 export async function updateBooking(req, res){
